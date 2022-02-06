@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product version="3" modelHash="-cbizf3cjvn73bg6hhsyt3zhf2rdfl48">
+  <files names="BooleanPrimitiveType_Editor.java:BooleanPrimitiveType_EditorBuilder_a.java:Cardinality_Editor.java:Cardinality_EditorBuilder_a.java:ComplexType_Editor.java:ComplexType_EditorBuilder_a.java:DatePrimitiveType_Editor.java:DatePrimitiveType_EditorBuilder_a.java:EditorAspectDescriptorImpl.java:EnumPrimitiveType_Editor.java:EnumPrimitiveType_EditorBuilder_a.java:EnumValue_Editor.java:EnumValue_EditorBuilder_a.java:Field_Editor.java:Field_EditorBuilder_a.java:Field_SubstituteMenu.java:Model_Editor.java:Model_EditorBuilder_a.java:NumericPrimitiveType_Editor.java:NumericPrimitiveType_EditorBuilder_a.java:PrimitiveType_Editor.java:PrimitiveType_EditorBuilder_a.java:TextPrimitiveType_Editor.java:TextPrimitiveType_EditorBuilder_a.java:Unit_Editor.java:Unit_EditorBuilder_a.java:base_StyleSheet.java" />
+</product>
+
