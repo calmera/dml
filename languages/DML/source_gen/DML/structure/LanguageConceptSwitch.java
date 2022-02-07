@@ -13,15 +13,16 @@ public final class LanguageConceptSwitch {
   public static final int Cardinality = 1;
   public static final int ComplexType = 2;
   public static final int DatePrimitiveType = 3;
-  public static final int EnumPrimitiveType = 4;
-  public static final int EnumValue = 5;
-  public static final int Field = 6;
-  public static final int Model = 7;
-  public static final int NumericPrimitiveType = 8;
-  public static final int PrimitiveType = 9;
-  public static final int TextPrimitiveType = 10;
-  public static final int Type = 11;
-  public static final int Unit = 12;
+  public static final int Documented = 4;
+  public static final int EnumPrimitiveType = 5;
+  public static final int EnumValue = 6;
+  public static final int Field = 7;
+  public static final int Model = 8;
+  public static final int NumericPrimitiveType = 9;
+  public static final int PrimitiveType = 10;
+  public static final int TextPrimitiveType = 11;
+  public static final int Type = 12;
+  public static final int Unit = 13;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL);
@@ -29,6 +30,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x71b6a2d94402f199L, Cardinality);
     builder.put(0x71b6a2d943ff46f9L, ComplexType);
     builder.put(0x71b6a2d944091fb2L, DatePrimitiveType);
+    builder.put(0x71b6a2d94413d99bL, Documented);
     builder.put(0x71b6a2d9440e21f5L, EnumPrimitiveType);
     builder.put(0x71b6a2d9440e21faL, EnumValue);
     builder.put(0x71b6a2d94402f196L, Field);

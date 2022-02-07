@@ -13,6 +13,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Cardinality;
   private ConceptPresentation props_ComplexType;
   private ConceptPresentation props_DatePrimitiveType;
+  private ConceptPresentation props_Documented;
   private ConceptPresentation props_EnumPrimitiveType;
   private ConceptPresentation props_EnumValue;
   private ConceptPresentation props_Field;
@@ -56,6 +57,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_DatePrimitiveType = cpb.create();
         }
         return props_DatePrimitiveType;
+      case LanguageConceptSwitch.Documented:
+        if (props_Documented == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_Documented = cpb.create();
+        }
+        return props_Documented;
       case LanguageConceptSwitch.EnumPrimitiveType:
         if (props_EnumPrimitiveType == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

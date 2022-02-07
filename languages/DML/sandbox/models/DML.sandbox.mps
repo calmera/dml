@@ -30,6 +30,10 @@
         <reference id="8193915626079962532" name="type" index="PGAtX" />
         <child id="8193915626079842806" name="cardinality" index="PH5cJ" />
       </concept>
+      <concept id="8193915626080575994" name="DML.structure.EnumValue" flags="ng" index="PI8cz" />
+      <concept id="8193915626080575989" name="DML.structure.EnumPrimitiveType" flags="ng" index="PI8cG">
+        <child id="8193915626080575992" name="values" index="PI8cx" />
+      </concept>
       <concept id="8193915626080319259" name="DML.structure.TextPrimitiveType" flags="ng" index="PJ9n2">
         <child id="8193915626080319268" name="cardinality" index="PJ9nX" />
       </concept>
@@ -101,6 +105,22 @@
           <property role="PH5d3" value="3" />
           <property role="PH5d5" value="20" />
         </node>
+      </node>
+    </node>
+  </node>
+  <node concept="PGurR" id="76QCH_43TdY">
+    <property role="TrG5h" value="enums" />
+    <ref role="PGurC" node="76QCH_43xFL" resolve="my_model" />
+    <node concept="PI8cG" id="76QCH_43Te0" role="PGurE">
+      <property role="TrG5h" value="IdentifierType" />
+      <node concept="PI8cz" id="76QCH_44B3S" role="PI8cx">
+        <property role="TrG5h" value="LEI" />
+      </node>
+      <node concept="PI8cz" id="76QCH_44B3V" role="PI8cx">
+        <property role="TrG5h" value="UTI" />
+      </node>
+      <node concept="PI8cz" id="76QCH_44B3Y" role="PI8cx">
+        <property role="TrG5h" value="UPI" />
       </node>
     </node>
   </node>

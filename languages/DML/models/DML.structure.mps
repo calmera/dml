@@ -7,6 +7,7 @@
   </languages>
   <imports>
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
+    <import index="zqge" ref="r:59e90602-6655-4552-86eb-441a42a9a0e4(jetbrains.mps.lang.text.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
@@ -23,6 +24,7 @@
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
+      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ" />
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
@@ -106,6 +108,9 @@
       <property role="20kJfa" value="type" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="76QCH_41HoC" resolve="Type" />
+    </node>
+    <node concept="PrWs8" id="76QCH_44XAv" role="PzmwI">
+      <ref role="PrY4T" node="76QCH_44XAr" resolve="Documented" />
     </node>
   </node>
   <node concept="1TIwiD" id="76QCH_40J6p">
@@ -214,7 +219,7 @@
       <property role="IQ2ns" value="8193915626080575992" />
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="values" />
-      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" node="76QCH_43y7U" resolve="EnumValue" />
     </node>
   </node>
@@ -224,6 +229,21 @@
     <ref role="1TJDcQ" to="tpck:gw2VY9q" />
     <node concept="PrWs8" id="76QCH_43y7X" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="76QCH_44XAr">
+    <property role="EcuMT" value="8193915626080950683" />
+    <property role="TrG5h" value="Documented" />
+    <node concept="1TJgyi" id="76QCH_44XAs" role="1TKVEl">
+      <property role="IQ2nx" value="8193915626080950684" />
+      <property role="TrG5h" value="doc" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyj" id="76QCH_459H0" role="1TKVEi">
+      <property role="IQ2ns" value="8193915626081000256" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="docs" />
+      <ref role="20lvS9" to="zqge:2cLqkTm6vgh" resolve="Text" />
     </node>
   </node>
 </model>

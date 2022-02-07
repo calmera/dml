@@ -21,6 +21,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptCardinality = createDescriptorForCardinality();
   /*package*/ final ConceptDescriptor myConceptComplexType = createDescriptorForComplexType();
   /*package*/ final ConceptDescriptor myConceptDatePrimitiveType = createDescriptorForDatePrimitiveType();
+  /*package*/ final ConceptDescriptor myConceptDocumented = createDescriptorForDocumented();
   /*package*/ final ConceptDescriptor myConceptEnumPrimitiveType = createDescriptorForEnumPrimitiveType();
   /*package*/ final ConceptDescriptor myConceptEnumValue = createDescriptorForEnumValue();
   /*package*/ final ConceptDescriptor myConceptField = createDescriptorForField();
@@ -45,7 +46,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptBooleanPrimitiveType, myConceptCardinality, myConceptComplexType, myConceptDatePrimitiveType, myConceptEnumPrimitiveType, myConceptEnumValue, myConceptField, myConceptModel, myConceptNumericPrimitiveType, myConceptPrimitiveType, myConceptTextPrimitiveType, myConceptType, myConceptUnit);
+    return Arrays.asList(myConceptBooleanPrimitiveType, myConceptCardinality, myConceptComplexType, myConceptDatePrimitiveType, myConceptDocumented, myConceptEnumPrimitiveType, myConceptEnumValue, myConceptField, myConceptModel, myConceptNumericPrimitiveType, myConceptPrimitiveType, myConceptTextPrimitiveType, myConceptType, myConceptUnit);
   }
 
   @Override
@@ -60,6 +61,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptComplexType;
       case LanguageConceptSwitch.DatePrimitiveType:
         return myConceptDatePrimitiveType;
+      case LanguageConceptSwitch.Documented:
+        return myConceptDocumented;
       case LanguageConceptSwitch.EnumPrimitiveType:
         return myConceptEnumPrimitiveType;
       case LanguageConceptSwitch.EnumValue:
@@ -130,13 +133,21 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("date");
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForDocumented() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "Documented", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94413d99bL);
+    b.interface_();
+    b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/8193915626080950683");
+    b.version(2);
+    b.property("doc", 0x71b6a2d94413d99cL).type(PrimitiveTypeId.STRING).origin("8193915626080950684").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForEnumPrimitiveType() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "EnumPrimitiveType", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d9440e21f5L);
     b.class_(false, false, false);
     b.super_("DML.structure.PrimitiveType", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d943fffb33L);
     b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/8193915626080575989");
     b.version(2);
-    b.aggregate("values", 0x71b6a2d9440e21f8L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d9440e21faL).optional(true).ordered(true).multiple(true).origin("8193915626080575992").done();
+    b.aggregate("values", 0x71b6a2d9440e21f8L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d9440e21faL).optional(false).ordered(true).multiple(true).origin("8193915626080575992").done();
     b.alias("enum");
     return b.create();
   }
@@ -152,6 +163,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "Field", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94402f196L);
     b.class_(false, false, false);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.parent(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94413d99bL);
     b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/8193915626079842710");
     b.version(2);
     b.associate("type", 0x71b6a2d94404c5a4L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94406d628L).optional(false).origin("8193915626079962532").done();
