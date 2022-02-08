@@ -9,17 +9,21 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
+  private ConceptPresentation props_AbstractSection;
   private ConceptPresentation props_BooleanPrimitiveType;
   private ConceptPresentation props_Cardinality;
+  private ConceptPresentation props_CommentLine;
   private ConceptPresentation props_ComplexType;
+  private ConceptPresentation props_ComplexTypeBody;
   private ConceptPresentation props_DatePrimitiveType;
-  private ConceptPresentation props_Documented;
+  private ConceptPresentation props_EmptyLine;
   private ConceptPresentation props_EnumPrimitiveType;
   private ConceptPresentation props_EnumValue;
   private ConceptPresentation props_Field;
   private ConceptPresentation props_Model;
   private ConceptPresentation props_NumericPrimitiveType;
   private ConceptPresentation props_PrimitiveType;
+  private ConceptPresentation props_SectionList;
   private ConceptPresentation props_TextPrimitiveType;
   private ConceptPresentation props_Type;
   private ConceptPresentation props_Unit;
@@ -29,6 +33,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
+      case LanguageConceptSwitch.AbstractSection:
+        if (props_AbstractSection == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_AbstractSection = cpb.create();
+        }
+        return props_AbstractSection;
       case LanguageConceptSwitch.BooleanPrimitiveType:
         if (props_BooleanPrimitiveType == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -43,6 +53,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Cardinality = cpb.create();
         }
         return props_Cardinality;
+      case LanguageConceptSwitch.CommentLine:
+        if (props_CommentLine == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("#");
+          props_CommentLine = cpb.create();
+        }
+        return props_CommentLine;
       case LanguageConceptSwitch.ComplexType:
         if (props_ComplexType == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -50,6 +67,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ComplexType = cpb.create();
         }
         return props_ComplexType;
+      case LanguageConceptSwitch.ComplexTypeBody:
+        if (props_ComplexTypeBody == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("ComplexTypeBody");
+          props_ComplexTypeBody = cpb.create();
+        }
+        return props_ComplexTypeBody;
       case LanguageConceptSwitch.DatePrimitiveType:
         if (props_DatePrimitiveType == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -57,12 +81,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_DatePrimitiveType = cpb.create();
         }
         return props_DatePrimitiveType;
-      case LanguageConceptSwitch.Documented:
-        if (props_Documented == null) {
+      case LanguageConceptSwitch.EmptyLine:
+        if (props_EmptyLine == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_Documented = cpb.create();
+          cpb.rawPresentation("<empty>");
+          props_EmptyLine = cpb.create();
         }
-        return props_Documented;
+        return props_EmptyLine;
       case LanguageConceptSwitch.EnumPrimitiveType:
         if (props_EnumPrimitiveType == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -104,6 +129,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_PrimitiveType = cpb.create();
         }
         return props_PrimitiveType;
+      case LanguageConceptSwitch.SectionList:
+        if (props_SectionList == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("SectionList");
+          props_SectionList = cpb.create();
+        }
+        return props_SectionList;
       case LanguageConceptSwitch.TextPrimitiveType:
         if (props_TextPrimitiveType == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

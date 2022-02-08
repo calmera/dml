@@ -17,17 +17,21 @@ import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
+  /*package*/ final ConceptDescriptor myConceptAbstractSection = createDescriptorForAbstractSection();
   /*package*/ final ConceptDescriptor myConceptBooleanPrimitiveType = createDescriptorForBooleanPrimitiveType();
   /*package*/ final ConceptDescriptor myConceptCardinality = createDescriptorForCardinality();
+  /*package*/ final ConceptDescriptor myConceptCommentLine = createDescriptorForCommentLine();
   /*package*/ final ConceptDescriptor myConceptComplexType = createDescriptorForComplexType();
+  /*package*/ final ConceptDescriptor myConceptComplexTypeBody = createDescriptorForComplexTypeBody();
   /*package*/ final ConceptDescriptor myConceptDatePrimitiveType = createDescriptorForDatePrimitiveType();
-  /*package*/ final ConceptDescriptor myConceptDocumented = createDescriptorForDocumented();
+  /*package*/ final ConceptDescriptor myConceptEmptyLine = createDescriptorForEmptyLine();
   /*package*/ final ConceptDescriptor myConceptEnumPrimitiveType = createDescriptorForEnumPrimitiveType();
   /*package*/ final ConceptDescriptor myConceptEnumValue = createDescriptorForEnumValue();
   /*package*/ final ConceptDescriptor myConceptField = createDescriptorForField();
   /*package*/ final ConceptDescriptor myConceptModel = createDescriptorForModel();
   /*package*/ final ConceptDescriptor myConceptNumericPrimitiveType = createDescriptorForNumericPrimitiveType();
   /*package*/ final ConceptDescriptor myConceptPrimitiveType = createDescriptorForPrimitiveType();
+  /*package*/ final ConceptDescriptor myConceptSectionList = createDescriptorForSectionList();
   /*package*/ final ConceptDescriptor myConceptTextPrimitiveType = createDescriptorForTextPrimitiveType();
   /*package*/ final ConceptDescriptor myConceptType = createDescriptorForType();
   /*package*/ final ConceptDescriptor myConceptUnit = createDescriptorForUnit();
@@ -46,23 +50,29 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptBooleanPrimitiveType, myConceptCardinality, myConceptComplexType, myConceptDatePrimitiveType, myConceptDocumented, myConceptEnumPrimitiveType, myConceptEnumValue, myConceptField, myConceptModel, myConceptNumericPrimitiveType, myConceptPrimitiveType, myConceptTextPrimitiveType, myConceptType, myConceptUnit);
+    return Arrays.asList(myConceptAbstractSection, myConceptBooleanPrimitiveType, myConceptCardinality, myConceptCommentLine, myConceptComplexType, myConceptComplexTypeBody, myConceptDatePrimitiveType, myConceptEmptyLine, myConceptEnumPrimitiveType, myConceptEnumValue, myConceptField, myConceptModel, myConceptNumericPrimitiveType, myConceptPrimitiveType, myConceptSectionList, myConceptTextPrimitiveType, myConceptType, myConceptUnit);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
+      case LanguageConceptSwitch.AbstractSection:
+        return myConceptAbstractSection;
       case LanguageConceptSwitch.BooleanPrimitiveType:
         return myConceptBooleanPrimitiveType;
       case LanguageConceptSwitch.Cardinality:
         return myConceptCardinality;
+      case LanguageConceptSwitch.CommentLine:
+        return myConceptCommentLine;
       case LanguageConceptSwitch.ComplexType:
         return myConceptComplexType;
+      case LanguageConceptSwitch.ComplexTypeBody:
+        return myConceptComplexTypeBody;
       case LanguageConceptSwitch.DatePrimitiveType:
         return myConceptDatePrimitiveType;
-      case LanguageConceptSwitch.Documented:
-        return myConceptDocumented;
+      case LanguageConceptSwitch.EmptyLine:
+        return myConceptEmptyLine;
       case LanguageConceptSwitch.EnumPrimitiveType:
         return myConceptEnumPrimitiveType;
       case LanguageConceptSwitch.EnumValue:
@@ -75,6 +85,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptNumericPrimitiveType;
       case LanguageConceptSwitch.PrimitiveType:
         return myConceptPrimitiveType;
+      case LanguageConceptSwitch.SectionList:
+        return myConceptSectionList;
       case LanguageConceptSwitch.TextPrimitiveType:
         return myConceptTextPrimitiveType;
       case LanguageConceptSwitch.Type:
@@ -95,6 +107,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     return myIndexSwitch.index(c);
   }
 
+  private static ConceptDescriptor createDescriptorForAbstractSection() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "AbstractSection", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf1f28L);
+    b.class_(false, true, false);
+    b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/2441404070891560744");
+    b.version(2);
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForBooleanPrimitiveType() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "BooleanPrimitiveType", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d9440b7299L);
     b.class_(false, false, false);
@@ -113,6 +132,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("max", 0x71b6a2d94402f19cL).type(MetaIdFactory.dataTypeId(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94402f19fL)).origin("8193915626079842716").done();
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForCommentLine() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "CommentLine", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eb1d7b1L);
+    b.class_(false, false, false);
+    b.super_("DML.structure.AbstractSection", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf1f28L);
+    b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/2441404070891739057");
+    b.version(2);
+    b.property("text", 0x21e19c113eb1d7b2L).type(PrimitiveTypeId.STRING).origin("2441404070891739058").done();
+    b.alias("#");
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForComplexType() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "ComplexType", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d943ff46f9L);
     b.class_(false, false, false);
@@ -120,7 +149,17 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/8193915626079602425");
     b.version(2);
     b.associate("base", 0x71b6a2d943fffb34L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94406d628L).optional(true).origin("8193915626079648564").done();
-    b.aggregate("fields", 0x71b6a2d944033ef5L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94402f196L).optional(true).ordered(true).multiple(true).origin("8193915626079862517").done();
+    b.aggregate("docs", 0x21e19c113eb5907fL).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eb1d7b1L).optional(true).ordered(true).multiple(true).origin("2441404070891982975").done();
+    b.aggregate("body", 0x21e19c113eb58c2eL).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eb569b8L).optional(false).ordered(true).multiple(false).origin("2441404070891981870").done();
+    b.alias("entity");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForComplexTypeBody() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "ComplexTypeBody", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eb569b8L);
+    b.class_(false, false, false);
+    b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/2441404070891973048");
+    b.version(2);
+    b.aggregate("members", 0x21e19c113eb58cd6L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf1f28L).optional(true).ordered(true).multiple(true).origin("2441404070891982038").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForDatePrimitiveType() {
@@ -133,12 +172,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("date");
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForDocumented() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "Documented", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94413d99bL);
-    b.interface_();
-    b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/8193915626080950683");
+  private static ConceptDescriptor createDescriptorForEmptyLine() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "EmptyLine", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf27caL);
+    b.class_(false, false, false);
+    b.super_("DML.structure.AbstractSection", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf1f28L);
+    b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/2441404070891562954");
     b.version(2);
-    b.property("doc", 0x71b6a2d94413d99cL).type(PrimitiveTypeId.STRING).origin("8193915626080950684").done();
+    b.alias("<empty>");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForEnumPrimitiveType() {
@@ -162,12 +202,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForField() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "Field", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94402f196L);
     b.class_(false, false, false);
+    b.super_("DML.structure.AbstractSection", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf1f28L);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
-    b.parent(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94413d99bL);
     b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/8193915626079842710");
     b.version(2);
     b.associate("type", 0x71b6a2d94404c5a4L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94406d628L).optional(false).origin("8193915626079962532").done();
     b.aggregate("cardinality", 0x71b6a2d94402f1f6L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94402f199L).optional(false).ordered(true).multiple(false).origin("8193915626079842806").done();
+    b.aggregate("docs", 0x21e19c113eacc370L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eb1d7b1L).optional(true).ordered(true).multiple(false).origin("2441404070891406192").done();
+    b.alias("field");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForModel() {
@@ -199,6 +241,14 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForSectionList() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "SectionList", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf270cL);
+    b.class_(false, false, false);
+    b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/2441404070891562764");
+    b.version(2);
+    b.aggregate("sections", 0x21e19c113eaf270fL).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf1f28L).optional(true).ordered(true).multiple(true).origin("2441404070891562767").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForTextPrimitiveType() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "TextPrimitiveType", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d9440a371bL);
     b.class_(false, false, false);
@@ -212,6 +262,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForType() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("DML", "Type", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94406d628L);
     b.class_(false, true, false);
+    b.super_("DML.structure.AbstractSection", 0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf1f28L);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/8193915626080097832");
     b.version(2);
@@ -223,8 +274,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:e2fb10de-fd5c-4588-b15d-8e30dcbb1c38(DML.structure)/8193915626080125998");
     b.version(2);
-    b.associate("model", 0x71b6a2d944074431L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d943fffb36L).optional(false).origin("8193915626080126001").done();
-    b.aggregate("types", 0x71b6a2d944074433L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d94406d628L).optional(false).ordered(true).multiple(true).origin("8193915626080126003").done();
+    b.associate("model", 0x21e19c113eb03ad9L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x71b6a2d943fffb36L).optional(false).origin("2441404070891633369").done();
+    b.aggregate("body", 0x71b6a2d944074433L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eaf270cL).optional(false).ordered(true).multiple(false).origin("8193915626080126003").done();
+    b.aggregate("docs", 0x21e19c113eb2b1f1L).target(0x432aa8f9d91b4617L, 0x8bf766a97fe245baL, 0x21e19c113eb1d7b1L).optional(true).ordered(true).multiple(true).origin("2441404070891794929").done();
     b.alias("unit");
     return b.create();
   }

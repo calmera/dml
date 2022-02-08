@@ -22,6 +22,16 @@ public class base_StyleSheet {
     EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
     new keywordStyleClass(editorContext, node).apply(style, editorCell);
   }
+  /**
+   * 
+   * @deprecated Since MPS 3.5 use generated StyleClass
+   */
+  @Deprecated
+  public static void apply_comment(Style style, EditorCell editorCell) {
+    SNode node = (editorCell == null ? null : editorCell.getSNode());
+    EditorContext editorContext = (editorCell == null ? null : editorCell.getContext());
+    new commentStyleClass(editorContext, node).apply(style, editorCell);
+  }
 
   public static class keywordStyleClass extends AbstractStyleClass {
     public keywordStyleClass(EditorContext editorContext, SNode node) {
@@ -32,6 +42,17 @@ public class base_StyleSheet {
     public void apply(Style style, EditorCell editorCell) {
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.blue));
       style.set(StyleAttributes.EDITABLE, true);
+    }
+
+  }
+  public static class commentStyleClass extends AbstractStyleClass {
+    public commentStyleClass(EditorContext editorContext, SNode node) {
+      super(editorContext, node);
+    }
+
+    @Override
+    public void apply(Style style, EditorCell editorCell) {
+      style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.green));
     }
 
   }
